@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS members_in_session;
-DROP TABLE IF EXISTS gym_session;
+DROP TABLE IF EXISTS gym_sessions;
 DROP TABLE IF EXISTS members;
 
 CREATE TABLE members (
