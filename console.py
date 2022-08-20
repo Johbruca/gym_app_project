@@ -3,7 +3,7 @@ import pdb
 from models.member import Member
 import repositories.member_respository as member_repository
 
-from models.gym_session import Session
+from models.gym_session import GymSession
 import repositories.gym_session_repository as gym_session_repository
 
 from models.members_in_session import MemberInSession
@@ -12,8 +12,8 @@ import repositories.members_in_session_repository as members_in_session_reposito
 
 
 member_repository.delete_all()
-session_repository.delete_all()
-member_in_session_repository.delete_all()
+gym_session_repository.delete_all()
+members_in_session_repository.delete_all()
 
 
 member1 = Member('Ona Madorell')
@@ -25,13 +25,13 @@ member_repository.save(member2)
 member3 = Member('Nick Parker')
 member_repository.save(member3)
 
-session1 = Session('Spinning')
+session1 = GymSession('Spinning')
 gym_session_repository.save(session1)
 
-session2 = Session('Yoga')
+session2 = GymSession('Yoga')
 gym_session_repository.save(session2)
 
-session3 = Session('Boxing')
+session3 = GymSession('Boxing')
 gym_session_repository.save(session3)
 
 member_in_session1 = MemberInSession(member3, session2)
