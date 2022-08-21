@@ -15,5 +15,5 @@ CREATE TABLE gym_sessions (
 CREATE TABLE booked_sessions (
     id BIGSERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    gym_session_id INT REFERENCES gym_session(id) ON DELETE CASCADE
+    gym_session_id INT REFERENCES gym_sessions(id) ON DELETE CASCADE
 );

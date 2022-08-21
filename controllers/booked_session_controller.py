@@ -5,4 +5,4 @@ import repositories.booked_session_repository as booked_session_repository
 import repositories.member_respository as member_repository
 import repositories.gym_session_repository as gym_session_repository
 
-booked_session_blueprint = Blueprint("booked_sessions", __name__)
+booked_sessions_blueprint = Blueprint("booked_sessions", __name__)

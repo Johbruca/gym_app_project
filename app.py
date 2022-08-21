@@ -1,13 +1,13 @@
 from flask import Flask, render_template
 
 
-from controllers.booked_session_controller import booked_session_blueprint
+from controllers.booked_session_controller import booked_sessions_blueprint
 from controllers.gym_session_controller import gym_sessions_blueprint
 from controllers.member_controller import members_blueprint
 
 app = Flask(__name__)
 
-app.register_blueprint(booked_session_blueprint)
+app.register_blueprint(booked_sessions_blueprint)
 app.register_blueprint(gym_sessions_blueprint)
 app.register_blueprint(members_blueprint)
 
