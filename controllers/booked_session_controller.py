@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.members_in_session import MemberInSession
-import repositories.members_in_session_repository as members_in_session_repository
+from models.booked_session import BookedSession
+import repositories.booked_session_repository as booked_session_repository
 import repositories.member_respository as member_repository
 import repositories.gym_session_repository as gym_session_repository
 
-members_in_session_blueprint = Blueprint("members_in_sessions", __name__)
+booked_session_blueprint = Blueprint("booked_sessions", __name__)

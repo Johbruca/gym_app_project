@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS members_in_session;
+DROP TABLE IF EXISTS booked_sessions;
 DROP TABLE IF EXISTS gym_sessions;
 DROP TABLE IF EXISTS members;
 
@@ -12,7 +12,7 @@ CREATE TABLE gym_sessions (
     name VARCHAR(255)
 );
 
-CREATE TABLE members_in_session (
+CREATE TABLE booked_sessions (
     id BIGSERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
     gym_session_id INT REFERENCES gym_session(id) ON DELETE CASCADE
