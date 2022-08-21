@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Gym Buddy</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
+</head>
+<body>
+<main class="flex flex--row">
+  <nav>
+    <ul>
+      <li>
+        <a href="/gym_sessions">Sessions</a>
+      </li>
+      <li>
+        <a href="/members">Members</a>
+      </li>
+      <li>
+        <a href="/members_in_session">Members Booked In Sessions</a>
+      </li>
+      <li>
+        <a href="/upcoming_sessions">Upcoming Sessions</a>
+      </li>
+    </ul>
+  </nav>
+  <section id="content">
+      {% block content %}
+
+      {% endblock%}
+  </section>
+  </main>
+</body>
+</html>
