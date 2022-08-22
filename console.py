@@ -1,7 +1,7 @@
 import pdb
 
 from models.member import Member
-import repositories.member_respository as member_repository
+import repositories.member_repository as member_repository
 
 from models.gym_session import GymSession
 import repositories.gym_session_repository as gym_session_repository
@@ -25,13 +25,13 @@ member_repository.save(member2)
 member3 = Member('Nick Parker')
 member_repository.save(member3)
 
-session1 = GymSession('Spinning', 60)
+session1 = GymSession('Spinning')
 gym_session_repository.save(session1)
 
-session2 = GymSession('Yoga', 60)
+session2 = GymSession('Yoga')
 gym_session_repository.save(session2)
 
-session3 = GymSession('Boxing', 45)
+session3 = GymSession('Boxing')
 gym_session_repository.save(session3)
 
 booked_session1 = BookedSession(member3, session2)

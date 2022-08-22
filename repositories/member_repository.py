@@ -44,12 +44,12 @@ def gym_sessions(member):
     results = run_sql(sql, values)
 
     for row in results:
-        gym_session = GymSession(row['description'], row['duration'], row['id'])
+        gym_session = GymSession(row['description'], row['id'])
         gym_sessions.append(gym_session)
 
     return gym_sessions
 
 def update(member):
-    sql = "UPDATE members SET (name, gym_session_id) = (%s, %s) WHERE id = %s"
-    values = [member.name, member.gym_session.id, member.id]
+    sql = "UPDATE members SET name = (%s) WHERE id = %s"
+    values = [member.name, member.id]
     run_sql(sql, values)

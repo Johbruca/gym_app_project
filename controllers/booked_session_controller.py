@@ -18,7 +18,7 @@ def new_session():
     gym_sessions = gym_session_repository.select_all()
     return render_template("booked_sessions/new.html", members = members, gym_sessions = gym_sessions)
 
-@booked_sessions_blueprint.route("/booked_sessions",  methods=['POST'])
+@booked_sessions_blueprint.route("/booked_sessions/new",  methods=['POST'])
 def create_session():
     member_id = request.form['member_id']
     gym_session_id = request.form['gym_session_id']

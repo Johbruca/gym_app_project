@@ -4,8 +4,8 @@ from models.gym_session import GymSession
 from models.member import Member
 
 def save(session):
-    sql = "INSERT INTO gym_sessions(description, duration) VALUES (%s, %s) RETURNING id"
-    values = [session.description, session.duration]
+    sql = "INSERT INTO gym_sessions(description) VALUES (%s) RETURNING id"
+    values = [session.description]
     results = run_sql( sql, values )
     session.id = results[0]['id']
     return session
@@ -17,7 +17,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        gym_session = GymSession(row['description'], row['duration'], row['id'])
+        gym_session = GymSession(row['description'], row['id'])
         gym_sessions.append(gym_session)
     return gym_sessions
 
@@ -32,7 +32,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        gym_session = GymSession(result['description'], result['duration'], result['id'] )
+        gym_session = GymSession(result['description'], result['id'] )
     return gym_session
 
 def members(gym_session):
@@ -47,3 +47,8 @@ def members(gym_session):
         members.append(member)
 
     return members
+
+def update(gym_session):
+    sql = "UPDATE gym_sessions SET description = %s WHERE id = %s"
+    values = [gym_session.description, gym_session.id]
+    run_sql(sql, values)

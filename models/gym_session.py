@@ -1,5 +1,4 @@
 class GymSession:
-    def __init__(self, description, duration, id=None):
+    def __init__(self, description, id=None):
         self.description = description
-        self.duration = duration
         self.id = id
