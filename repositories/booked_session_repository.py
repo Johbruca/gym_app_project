@@ -4,7 +4,7 @@ from models.booked_session import BookedSession
 from models.gym_session import GymSession
 from models.member import Member
 
-import repositories.member_respository as member_repository
+import repositories.member_repository as member_repository
 import repositories.gym_session_repository as gym_session_repository
 
 
@@ -31,3 +31,17 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM booked_sessions"
     run_sql(sql)
+
+def gym_session(booked_session):
+    sql = "SELECT * FROM gym_sessions WHERE id = %s"
+    values = [booked_session.gym_session.id]
+    results = run_sql(sql, values)[0]
+    gym_session = GymSession(results['description'], results['id'])
+    return gym_session
+
+def member(booked_session):
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [booked_session.member.id]
+    results = run_sql(sql, values)[0]
+    member = Member(results['name'], results['id'])
+    return member

@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.gym_session import GymSession
 from models.member import Member
+from models.booked_session import BookedSession
 
 def save(member):
     sql = "INSERT INTO members( name ) VALUES ( %s ) RETURNING id"
@@ -38,7 +39,7 @@ def select(id):
 def gym_sessions(member):
     gym_sessions = []
 
-    sql = "SELECT gym_sessions.* FROM locations INNER JOIN booked_sessions ON booked_sessions.gym_session_id = gym_sessions.id WHERE member_id = %s"
+    sql = "SELECT gym_sessions.* FROM gym_sessions INNER JOIN booked_sessions ON booked_sessions.gym_session_id = gym_sessions.id WHERE member_id = %s"
     values = [member.id]
     results = run_sql(sql, values)
 
@@ -47,3 +48,8 @@ def gym_sessions(member):
         gym_sessions.append(gym_session)
 
     return gym_sessions
+
+def update(member):
+    sql = "UPDATE members SET (name, gym_session_id) = (%s, %s) WHERE id = %s"
+    values = [member.name, member.gym_session.id, member.id]
+    run_sql(sql, values)

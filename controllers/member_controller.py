@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.member import Member
-import repositories.member_respository as member_repository
+import repositories.member_repository as member_repository
+import repositories.gym_session_repository as gym_session_repository
 
 members_blueprint = Blueprint("members", __name__)
 
@@ -15,3 +16,18 @@ def show(id):
     member = member_repository.select(id)
     gym_sessions = member_repository.gym_sessions(member)
     return render_template("members/show.html", member=member, gym_sessions=gym_sessions)
+
+@members_blueprint.route("/members/<id>/edit", methods=['GET'])
+def edit_member(id):
+    member = member_repository.select(id)
+    gym_sessions = gym_session_repository.select_all()
+    return render_template('members/edit.html', member = member, gym_sessions = gym_sessions)
+
+@members_blueprint.route("/members/<id>", methods=['POST'])
+def update_member(id):
+    name = request.form['name']
+    gym_session_id     = request.form['user_id']
+    gym_session        = gym_session_repository.select(gym_session_id)
+    member        = Member(name, gym_session, id)
+    member_repository.update(member)
+    return redirect('/members')

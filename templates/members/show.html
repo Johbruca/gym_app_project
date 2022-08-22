@@ -1,14 +1,17 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
-<h1> {{member.name}} </h1>
 
-<h3>Booked in For:</h3>
+  <div>
+    <p>{{member.name}}</p>
+    <h3>Booked:</h3>
 
 <ul>
-    {% for gym_session in gym_sessions  %}
+    {% for gym_session in gym_sessions %}
     <li>{{gym_session.description}}</li>
     {% endfor %}
 </ul>
+    
+    <p><a href="/members/{{member.id}}/edit">Edit</a></p>
+  </div>
 
 {% endblock %}
