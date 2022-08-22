@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{member.name}} </h1>
+
+<h3>Booked in For:</h3>
+
+<ul>
+    {% for gym_session in gym_sessions  %}
+    <li>{{gym_session.description}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

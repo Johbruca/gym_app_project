@@ -23,3 +23,27 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
+
+def select(id):
+    member = None
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    if results:
+        result = results[0]
+        member = Member(result['name'], result['id'] )
+    return member
+
+def gym_sessions(member):
+    gym_sessions = []
+
+    sql = "SELECT gym_sessions.* FROM locations INNER JOIN booked_sessions ON booked_sessions.gym_session_id = gym_sessions.id WHERE member_id = %s"
+    values = [member.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        gym_session = GymSession(row['description'], row['duration'], row['id'])
+        gym_sessions.append(gym_session)
+
+    return gym_sessions

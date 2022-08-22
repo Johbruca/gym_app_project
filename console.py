@@ -25,13 +25,13 @@ member_repository.save(member2)
 member3 = Member('Nick Parker')
 member_repository.save(member3)
 
-session1 = GymSession('Spinning')
+session1 = GymSession('Spinning', 60)
 gym_session_repository.save(session1)
 
-session2 = GymSession('Yoga')
+session2 = GymSession('Yoga', 60)
 gym_session_repository.save(session2)
 
-session3 = GymSession('Boxing')
+session3 = GymSession('Boxing', 45)
 gym_session_repository.save(session3)
 
 booked_session1 = BookedSession(member3, session2)
