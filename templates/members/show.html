@@ -5,13 +5,20 @@
     <p>{{member.name}}</p>
     <h3>Booked:</h3>
 
-<ul>
-    {% for gym_session in gym_sessions %}
-    <li>{{gym_session.description}}</li>
-    {% endfor %}
-</ul>
+  <ul>
+      {% for gym_session in gym_sessions %}
+      <li>{{gym_session.description}}</li>
+      {% endfor %}
+  </ul>
     
-    <p><a href="/members/{{member.id}}/edit">Edit</a></p>
+   
   </div>
+  <form action="/members/{{member.id}}/edit" method="GET">
+   <button type="submit">Edit Member</button>
+  </form>
+  <form action="/members/{{member.id}}/delete" method="POST">
+      
+    <button type="submit">Delete Member</button>
+  </form>
 
 {% endblock %}

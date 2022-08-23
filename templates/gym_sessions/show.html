@@ -10,6 +10,13 @@
     <li>{{member.name}}</li>
     {% endfor %}
 </ul>
-<p><a href="/gym_sessions/{{gym_session.id}}/edit">Edit</a></p>
+<form action="/gym_sessions/{{gym_session.id}}/edit" method="GET">
+      
+    <button type="submit">Edit Session</button>
+  </form>
+<form action="/gym_sessions/{{gym_session.id}}/delete" method="POST">
+      
+    <button type="submit">Delete Session</button>
+  </form>
 
 {% endblock %}

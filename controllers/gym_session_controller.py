@@ -27,7 +27,7 @@ def update_session(id):
     return redirect('/gym_sessions')
 
 @gym_sessions_blueprint.route("/gym_sessions/<id>/edit", methods=['GET'])
-def edit_member(id):
+def edit_session(id):
     gym_session = gym_session_repository.select(id)
     members = member_repository.select_all()
     return render_template('gym_sessions/edit.html', gym_session = gym_session, members = members)
@@ -39,10 +39,14 @@ def new_session():
     return render_template('gym_sessions/new.html', gym_session=gym_session)
 
 
-@gym_sessions_blueprint.route("/gym_session/new", methods=['POST'])
+@gym_sessions_blueprint.route("/gym_sessions/new", methods=['POST'])
 def create_session():
     description = request.form['description']
     session = GymSession(description)
     gym_session_repository.save(session)
     return redirect('/gym_sessions')
 
+@gym_sessions_blueprint.route("/gym_sessions/<id>/delete", methods=['POST'])
+def delete_session(id):
+    gym_session_repository.delete(id)
+    return redirect('/gym_sessions')

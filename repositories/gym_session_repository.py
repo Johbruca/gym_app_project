@@ -3,12 +3,12 @@ from db.run_sql import run_sql
 from models.gym_session import GymSession
 from models.member import Member
 
-def save(session):
+def save(gym_session):
     sql = "INSERT INTO gym_sessions(description) VALUES (%s) RETURNING id"
-    values = [session.description]
-    results = run_sql( sql, values )
-    session.id = results[0]['id']
-    return session
+    values = [gym_session.description]
+    results = run_sql(sql, values)
+    gym_session.id = results[0]['id']
+    return gym_session
 
 def select_all():
     gym_sessions = []
@@ -54,6 +54,6 @@ def update(gym_session):
     run_sql(sql, values)
 
 def delete(id):
-    sql = "DELETE  FROM gym_sessions WHERE id = %s"
+    sql = "DELETE FROM gym_sessions WHERE id = %s"
     values = [id]
     run_sql(sql, values)
