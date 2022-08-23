@@ -6,14 +6,14 @@ import repositories.member_repository as member_repository
 from models.gym_session import GymSession
 import repositories.gym_session_repository as gym_session_repository
 
-from models.booked_session import BookedSession
-import repositories.booked_session_repository as booked_session_repository
+from models.bookings import Bookings
+import repositories.bookings_repository as bookings_repository
 
 
 
 member_repository.delete_all()
 gym_session_repository.delete_all()
-booked_session_repository.delete_all()
+bookings_repository.delete_all()
 
 
 member1 = Member('Ona Madorell')
@@ -34,13 +34,13 @@ gym_session_repository.save(session2)
 session3 = GymSession('Boxing')
 gym_session_repository.save(session3)
 
-booked_session1 = BookedSession(member3, session2)
-booked_session_repository.save(booked_session1)
+booking1 = Bookings(member3, session2)
+bookings_repository.save(booking1)
 
-booked_session2 = BookedSession(member2, session2)
-booked_session_repository.save(booked_session2)
+booking2 = Bookings(member2, session2)
+bookings_repository.save(booking2)
 
-booked_session3 = BookedSession(member1, session3)
-booked_session_repository.save(booked_session3)
+booking3 = Bookings(member1, session3)
+bookings_repository.save(booking3)
 
 pdb.set_trace()
