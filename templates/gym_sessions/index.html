@@ -4,14 +4,13 @@
 <h1>Sessions</h1>
 
 <table>
-  <tr>
+    <tr>
     <th>Description</th>
     <th></th>
-  </tr>
-  {% for gym_session in gym_sessions %}
-  <tr>
+    </tr>
+    {% for gym_session in gym_sessions %}
+    <tr>
     <td><a href="/gym_sessions/{{ gym_session.id }}"> {{gym_session.description}} </a></td>
-    
   </tr>
   {% endfor %}
 </table>

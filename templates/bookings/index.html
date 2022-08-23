@@ -4,15 +4,15 @@
 <h1>Booked Sessions</h1>
 
 <p class="btn--wrapper">
-  <a class="btn btn--action" href="/booked_sessions/new">Booked Session</a>
+  <a class="btn btn--action" href="/bookings/new">Make Another Booking</a>
 </p>
 
 <ul>
-  {% for booked_session in booked_sessions %}
+  {% for booking in bookings %}
   <li>
-  <p>{{ booked_session.member.name }} - {{ booked_session.gym_session.description }} </p>
+  <p>{{ booking.member.name }} - {{ booking.gym_session.description }} </p>
     <p>
-      <form action="/visits/{{ visit.id }}/delete" method="POST">
+      <form action="/bookings/{{ booking.id }}/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
       </form>
     </p>

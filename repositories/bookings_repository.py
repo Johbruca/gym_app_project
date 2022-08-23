@@ -45,3 +45,8 @@ def member(booking):
     results = run_sql(sql, values)[0]
     member = Member(results['name'], results['id'])
     return member
+
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
