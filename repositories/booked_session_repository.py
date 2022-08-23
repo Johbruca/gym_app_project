@@ -22,7 +22,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        member = member_repository.select(row['user_id'])
+        member = member_repository.select(row['member_id'])
         gym_session = gym_session_repository.select(row['gym_session_id'])
         booked_session = BookedSession(member, gym_session, row['id'])
         booked_sessions.append(booked_session)

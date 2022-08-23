@@ -40,7 +40,7 @@ def gym_sessions(member):
     gym_sessions = []
 
     sql = "SELECT gym_sessions.* FROM gym_sessions INNER JOIN booked_sessions ON booked_sessions.gym_session_id = gym_sessions.id WHERE member_id = %s"
-    values = [member.id]
+    values = [member]
     results = run_sql(sql, values)
 
     for row in results:
