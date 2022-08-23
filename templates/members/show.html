@@ -1,24 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-  <div>
-    <p>{{member.name}}</p>
-    <h3>Booked:</h3>
+<div>
+  <p>{{member.name}}</p>
+  <h3>Booked:</h3>
 
   <ul>
-      {% for gym_session in gym_sessions %}
-      <li>{{gym_session.description}}</li>
-      {% endfor %}
+    {% for gym_session in gym_sessions %}
+    <li>{{gym_session.description}}</li>
+    {% endfor %}
   </ul>
-    
-   
-  </div>
-  <form action="/members/{{member.id}}/edit" method="GET">
-   <button type="submit">Edit Member</button>
-  </form>
-  <form action="/members/{{member.id}}/delete" method="POST">
-      
-    <button type="submit">Delete Member</button>
-  </form>
+</div>
+<form action="/members/{{member.id}}/edit" method="GET">
+  <button type="submit">Edit Member</button>
+</form>
+<form action="/members/{{member.id}}/delete" method="POST">
+  <button type="submit">Delete Member</button>
+</form>
 
 {% endblock %}

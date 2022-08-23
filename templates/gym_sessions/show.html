@@ -1,22 +1,18 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h1> {{gym_session.description}} </h1>
+{% extends 'base.html' %} {% block content %}
+<h1>{{gym_session.description}}</h1>
 
 <h3>Booked by:</h3>
 
 <ul>
-    {% for member in members %}
-    <li>{{member.name}}</li>
-    {% endfor %}
+  {% for member in members %}
+  <li>{{member.name}}</li>
+  {% endfor %}
 </ul>
 <form action="/gym_sessions/{{gym_session.id}}/edit" method="GET">
-      
-    <button type="submit">Edit Session</button>
-  </form>
+  <button type="submit">Edit Session</button>
+</form>
 <form action="/gym_sessions/{{gym_session.id}}/delete" method="POST">
-      
-    <button type="submit">Delete Session</button>
-  </form>
+  <button type="submit">Delete Session</button>
+</form>
 
 {% endblock %}

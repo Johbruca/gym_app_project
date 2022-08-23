@@ -1,16 +1,19 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <form action="/gym_sessions/{{gym_session.id}}" method="post">
   <div>
     <label for="description">Session Description:</label>
-    <input type="text" id="description" name="description" value="{{gym_session.description}}" required autofocus>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      value="{{gym_session.description}}"
+      required
+      autofocus
+    />
   </div>
-  
-
 
   <button type="submit">Update Session</button>
-
 </form>
 
 {% endblock %}
