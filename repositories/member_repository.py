@@ -5,7 +5,7 @@ from models.member import Member
 from models.booked_session import BookedSession
 
 def save(member):
-    sql = "INSERT INTO members( name ) VALUES ( %s ) RETURNING id"
+    sql = "INSERT INTO members(name) VALUES ( %s ) RETURNING id"
     values = [member.name]
     results = run_sql( sql, values )
     member.id = results[0]['id']

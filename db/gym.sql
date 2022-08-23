@@ -9,8 +9,7 @@ CREATE TABLE members (
 
 CREATE TABLE gym_sessions (
     id SERIAL PRIMARY KEY,
-    description VARCHAR(255),
-    duration INT
+    description VARCHAR(255)
 );
 
 CREATE TABLE booked_sessions (

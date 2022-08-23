@@ -30,11 +30,14 @@ def update_member(id):
     member_repository.update(member)
     return redirect('/members')
 
-@members_blueprint.route("/members/new",  methods=['POST'])
+@members_blueprint.route("/members/new",  methods=['GET'])
+def new_member():
+    member = member_repository.select_all()
+    return render_template('members/new.html', member=member)
+
+@members_blueprint.route("/members/new", methods=['POST'])
 def create_member():
     name = request.form['name']
-    gym_session_id = request.form['gym_session_id']
-    gym_session = gym_session_repository.select(gym_session_id)
-    new_member = Member(name, gym_session)
-    member_repository.save(new_member)
+    member = Member(name)
+    member_repository.save(member)
     return redirect('/members')

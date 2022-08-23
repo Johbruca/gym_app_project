@@ -1,7 +1,8 @@
+from crypt import methods
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.gym_session import GymSession
-from repositories.booked_session_repository import gym_session
+
 import repositories.gym_session_repository as gym_session_repository
 import repositories.member_repository as member_repository
 
@@ -31,11 +32,17 @@ def edit_member(id):
     members = member_repository.select_all()
     return render_template('gym_sessions/edit.html', gym_session = gym_session, members = members)
 
-@gym_sessions_blueprint.route("/gym_sessions/new",  methods=['POST'])
+
+@gym_sessions_blueprint.route("/gym_sessions/new",  methods=['GET'])
+def new_session():
+    gym_session = gym_session_repository.select_all()
+    return render_template('gym_sessions/new.html', gym_session=gym_session)
+
+
+@gym_sessions_blueprint.route("/gym_session/new", methods=['POST'])
 def create_session():
     description = request.form['description']
-    member_id = request.form['member_id']
-    gym_session = gym_session_repository.select(member_id)
-    new_session = GymSession(description, gym_session)
-    member_repository.save(new_session)
+    session = GymSession(description)
+    gym_session_repository.save(session)
     return redirect('/gym_sessions')
+
