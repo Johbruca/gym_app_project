@@ -1,0 +1,9 @@
+body {
+    background-image: url('static/images/background.jpeg');
+    background-size:auto;
+    background-repeat: no-repeat;
+    color: #100b08;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding: 0px;
+    margin: 20px;
+}
