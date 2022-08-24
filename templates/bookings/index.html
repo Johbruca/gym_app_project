@@ -13,7 +13,7 @@
   <p>{{ booking.member.name }} - {{ booking.gym_session.description }} </p>
     <p>
       <form action="/bookings/{{ booking.id }}/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
+        <input class="btn" type="submit" value="delete" />
       </form>
     </p>
   </li>
