@@ -1,5 +1,6 @@
 body {
-    background-image: url('static/images/background.jpeg');
+    background-image: url('/static/images/gym_image1.jpeg');
+    height: 100vh;
     background-size:auto;
     background-repeat: no-repeat;
     color: #100b08;
@@ -7,3 +8,46 @@ body {
     padding: 0px;
     margin: 20px;
 }
+
+ul {
+    list-style-type: none;
+    margin: -20;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    display: inline;
+}
+
+section {
+    display: ;
+}
+
+/* a:link, a:visited {
+    background-color: #3936f4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: red;
+  } */
+
+  a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: green;
+    color: white;
+  }
