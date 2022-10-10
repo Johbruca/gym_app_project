@@ -1,6 +1,7 @@
 "The Gym Buddy" Gym Management App
 
-About The Project
+About The Project:
+
 After 4 weeks of an intensive 16-week software development course at CodeClan we were tasked with creating our first full-stack application.
 
 The brief:
@@ -32,15 +33,25 @@ Flask
 pip3 install Flask
 Postgresql
 
-Installation
+Installation:
+
 Clone the repo
 git clone https://github.com/Johbruca/gym_app_project.git
+
 Navigate via Terminal to the folder
+
 Create the database
+
 psql -d gym_app -f db/gym_app.sql
+
 Populate the database with pre-set objects
+
 python3 console.py
+
 Run Flask
+
 flask run
+
 Open in Chrome: http://127.0.0.1:5000
+
 To stop the server enter ctrl + c in your Terminal
